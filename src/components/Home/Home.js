@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import './Home.css';
 import { cities } from '../../cities';
+import { useNavigate } from "react-router-dom";
+
 
 const Home = ({ setLocation, savedLocations }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [weatherData, setWeatherData] = useState(null);
-
+  const navigate = useNavigate()
   const handleSearch = async () => {
     setLocation(searchTerm);
+    navigate('./forecast')
   };
 
   const handleRandomCity = async () => {

@@ -4,9 +4,11 @@ import { weatherAPI } from '../../api-calls';
 import Card from '../Card/Card';
 
 const Forecast = ({ location }) => {
-  const [weatherData, setWeatherData] = useState(null);
+  const [weatherData, setWeatherData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  
 
   const weatherAPICall = async (location) => {
     try {
@@ -26,8 +28,8 @@ const Forecast = ({ location }) => {
 
   console.log('Weather Data:', weatherData);
 
-  const minutelyData = weatherData.timelines.minutely[1];
-  const name = weatherData.location.name
+  const minutelyData = weatherData.timelines?.minutely[0]?.values;
+  
   return (
     <div className="forecast-container">
       <h1>Hello</h1>
@@ -38,7 +40,15 @@ const Forecast = ({ location }) => {
           {minutelyData && minutelyData.length > 0 && (
             <div className="minutely-card">
               {weatherData.map((loca) => (
-                <Card key={loca.name} name={loca.name} />
+                <Card 
+                 key={loca.name} 
+                 code={loca.timelines.minutely[0].values.weatherCode}
+                 name={loca.name}
+                 humidity={loca.timelines.minutely[0].values.humidity}
+                 temperature={loca.timelines.minutely[0].values.temperature}
+                 uvIndex={loca.timelines.minutely[0].values.uvIndex}
+                 windSpeed={loca.timelines.minutely[0].values.windSpeed}
+                 />
               ))}
             </div>
           )}

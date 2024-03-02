@@ -10,7 +10,7 @@ import NotFound from '../NotFound/NotFound';
 import Potato from '../Potato/Potato';
 
 function App() {
-  const [location, setLocation] = useState('Denver');
+  const [location, setLocation] = useState('');
   const [savedLocations, setSavedLocations] = useState([])
 
   return (
