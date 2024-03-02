@@ -1,0 +1,31 @@
+/* Add this CSS to your stylesheet */
+.map-container {
+    position: relative;
+    width: 70%; /* Adjust the width as needed */
+    height: 70vh; /* Adjust the height as needed */
+    margin: auto; /* Center the map horizontally */
+  }
+  
+  .map-overlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+  }
+  
+  .instructions-container {
+    position: absolute;
+    z-index: 1;
+    line-height: 1.5;
+    top: 80px;
+    left: 20px;
+    width: 228px;
+    background: white;
+    padding: 6px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    font-size: 10px;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    color: #000000bf;
+  }
+  

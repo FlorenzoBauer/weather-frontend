@@ -1,0 +1,22 @@
+
+.potato-container {
+    position: relative;
+    text-align: center;
+    color: #060606; /* Text color, adjust as needed */
+  }
+  
+  .potato-title {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem; /* Adjust the font size */
+  }
+  
+  .potato-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    z-index: -1;
+  }
+  
