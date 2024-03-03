@@ -27,12 +27,12 @@ const Card = ({ code, name, humidity, temperature, uvIndex, windSpeed, setSavedL
     <div className="card">
       {name ? (
         <>
-          <h2>{name}</h2>
-          <p>{`Weather Condition: ${weatherCondition}`}</p>
-          <p>{`Humidity: ${humidity}%`}</p>
-          <p>{`Temperature: ${temperature}°C`}</p>
-          <p>{`UV Index: ${uvIndex}`}</p>
-          <p>{`Wind Speed: ${windSpeed} m/s`}</p>
+          <h2 className='city-name'>{name}</h2>
+          <p className='weatherCondition'>{`Weather Condition: ${weatherCondition}`}</p>
+          <p className='humidity'>{`Humidity: ${humidity}%`}</p>
+          <p className='temperature'>{`Temperature: ${temperature}°C`}</p>
+          <p className='uvIndex'>{`UV Index: ${uvIndex}`}</p>
+          <p className='windSpeed'>{`Wind Speed: ${windSpeed} m/s`}</p>
           <button onClick={favoriteCity}>❤️</button>
         </>
       ) : (

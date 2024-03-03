@@ -8,11 +8,9 @@ const Forecast = ({ setSavedLocations }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Load searched locations from local storage
   const searchedLocationsFromStorage = localStorage.getItem('searchedLocations');
   const searchedLocations = searchedLocationsFromStorage ? JSON.parse(searchedLocationsFromStorage) : [];
 
-  // Use the most recent searched location as the default
   const defaultLocation = searchedLocations.length > 0 ? searchedLocations[searchedLocations.length - 1] : '';
 
   const weatherAPICall = async (location) => {
@@ -20,7 +18,7 @@ const Forecast = ({ setSavedLocations }) => {
       const data = await weatherAPI(location);
       setWeatherData(data);
     } catch (error) {
-      setError(`Error fetching weather data: ${error}`);
+      setError(`${error}`);
     } finally {
       setLoading(false);
     }
@@ -33,8 +31,8 @@ const Forecast = ({ setSavedLocations }) => {
 
   console.log('Weather Data:', weatherData);
 
-  const name = weatherData.name;
-  const firstMinutely = weatherData.timelines?.minutely?.[0]?.values;
+  const name = weatherData?.name;
+  const firstMinutely = weatherData?.timelines?.minutely?.[0]?.values;
 
   const cityCard = firstMinutely ? (
     <Card

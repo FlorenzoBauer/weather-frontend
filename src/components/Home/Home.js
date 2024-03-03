@@ -7,8 +7,7 @@ import HomeCard from '../HomeCard/HomeCard';
 const Home = ({ setLocation }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [savedLocations, setSavedLocations] = useState([]);
-  const [searchedLocations, setSearchedLocations] = useState([]);
-  const [weatherData, setWeatherData] = useState(null);
+  
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,8 +20,7 @@ const Home = ({ setLocation }) => {
     }
 
     if (searchedLocationsFromStorage) {
-      const parsedSearchedLocations = JSON.parse(searchedLocationsFromStorage);
-      setSearchedLocations(parsedSearchedLocations);
+      JSON.parse(searchedLocationsFromStorage);
     }
   }, []);
 
@@ -36,12 +34,6 @@ const Home = ({ setLocation }) => {
     let randomIndex = Math.floor(Math.random() * cities.length);
     setLocation(cities[randomIndex]);
     saveLocationToLocalStorage('searchedLocations', cities[randomIndex]); // Save to searchedLocations storage
-    navigate('./forecast');
-  };
-
-  const handleCityCardClick = (selectedCity) => {
-    setLocation(selectedCity);
-    saveLocationToLocalStorage('searchedLocations', selectedCity); // Save to searchedLocations storage
     navigate('./forecast');
   };
 
@@ -69,13 +61,14 @@ const Home = ({ setLocation }) => {
     <div className="home-container">
       <div className="search-bar">
         <input
+        id='search-bar'
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Enter city name"
         />
-        <button onClick={handleSearch}>Search</button>
-        <button onClick={handleRandomCity}>Random City</button>
+        <button id='search-btn' onClick={handleSearch}>Search</button>
+        <button id='random-city-btn' onClick={handleRandomCity}>Random City</button>
       </div>
       <div className="weather-info-container">
         {savedLocations.length === 0 ? (

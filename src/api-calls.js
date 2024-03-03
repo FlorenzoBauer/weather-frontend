@@ -1,9 +1,12 @@
 
 export const weatherAPI = async (location) => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_BASE_URL}=${location}&apikey=${process.env.REACT_APP_API_KEY2}`);
+    const response = await fetch(`${process.env.REACT_APP_BASE_URL}=${location}&apikey=${process.env.REACT_APP_API_KEY}`);
     if (response.status === 429) {
       throw new Error('Too Many Requests. Please try again later.');
+    }
+    if (response.status === 400) {
+      throw new Error('That city could not be found. Please try again')
     }
     const data = await response.json();
     const firstMinutely = data?.timelines?.minutely?.[0];
