@@ -30,8 +30,6 @@ const Forecast = ({ setSavedLocations }) => {
     weatherAPICall(defaultLocation);
   }, [defaultLocation]);
 
-  console.log(weatherData);
-
   const name = weatherData?.name;
   const firstMinutely = weatherData?.timelines?.minutely?.[0]?.values;
 

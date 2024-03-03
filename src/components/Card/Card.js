@@ -34,7 +34,7 @@ const Card = ({ code, name, humidity, temperature, uvIndex, windSpeed, setSavedL
           <p className='temperature'>{`Temperature: ${temperature}°C`}</p>
           <p className='uvIndex'>{`UV Index: ${uvIndex}`}</p>
           <p className='windSpeed'>{`Wind Speed: ${windSpeed} m/s`}</p>
-          <button onClick={favoriteCity}>❤️</button>
+          <button id='fav-btn' onClick={favoriteCity}>❤️</button>
         </>
       ) : (
         <p>Error: No weather data available</p>
@@ -46,7 +46,7 @@ const Card = ({ code, name, humidity, temperature, uvIndex, windSpeed, setSavedL
 export default Card;
 
 Card.propTypes = {
-  code: PropTypes.string.isRequired,
+  code: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   humidity: PropTypes.number.isRequired,
   temperature: PropTypes.number.isRequired,
