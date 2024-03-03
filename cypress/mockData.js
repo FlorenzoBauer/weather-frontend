@@ -1,11 +1,10 @@
-export const mockData = {
-      name: 'Denver, Colorado, United States',
+export const mockData = {name: 'Denver, Colorado, United States',
       
       timelines: {
 
         minutely: [
           {
-            time: "1646358000000",
+            time: 1646358000000,
             values: {
               weatherCode: 1000, 
               humidity: 0.1, 
