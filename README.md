@@ -1,6 +1,6 @@
 # Weather Pal
 
-View website [here](www.google.com)
+View website [here](https://weather-pal-8354d0044bda.herokuapp.com/)
 ### Preview
 <img width="1435" alt="Screenshot 2024-03-03 at 11 51 01 AM" src="https://github.com/FlorenzoBauer/weather-frontend/assets/145882814/8d1d46e4-cea9-4c91-a8d7-a834601b0804">
 <img width="1438" alt="Screenshot 2024-03-03 at 11 51 23 AM" src="https://github.com/FlorenzoBauer/weather-frontend/assets/145882814/a7c05e3d-912c-429d-b855-404bb7f125fd">
