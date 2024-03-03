@@ -1,5 +1,7 @@
 .footer {
-    position: flex-end;
-    color:rgb(144, 138, 138);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: rgb(144, 138, 138);
     font-size: 1rem;
 }

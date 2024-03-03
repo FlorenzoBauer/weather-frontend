@@ -12,12 +12,6 @@ const Header = () => {
         <NavLink to="/" className="nav-link">
           Home
         </NavLink>
-        <NavLink to="/forecast" className="nav-link">
-          Forecast
-        </NavLink>
-        <NavLink to="/settings" className="nav-link">
-          Settings
-        </NavLink>
       </nav>
     </header>
   );

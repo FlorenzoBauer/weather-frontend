@@ -3,19 +3,24 @@ import './Forecast.css';
 import { weatherAPI } from '../../api-calls';
 import Card from '../Card/Card';
 
-const Forecast = ({ location }) => {
+const Forecast = ({ setSavedLocations }) => {
   const [weatherData, setWeatherData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  
+  // Load searched locations from local storage
+  const searchedLocationsFromStorage = localStorage.getItem('searchedLocations');
+  const searchedLocations = searchedLocationsFromStorage ? JSON.parse(searchedLocationsFromStorage) : [];
+
+  // Use the most recent searched location as the default
+  const defaultLocation = searchedLocations.length > 0 ? searchedLocations[searchedLocations.length - 1] : '';
 
   const weatherAPICall = async (location) => {
     try {
       const data = await weatherAPI(location);
       setWeatherData(data);
     } catch (error) {
-      setError('Error fetching weather data. Please try again.');
+      setError(`Error fetching weather data: ${error}`);
     } finally {
       setLoading(false);
     }
@@ -23,36 +28,35 @@ const Forecast = ({ location }) => {
 
   useEffect(() => {
     setLoading(true);
-    weatherAPICall(location);
-  }, [location]);
+    weatherAPICall(defaultLocation);
+  }, [defaultLocation]);
 
   console.log('Weather Data:', weatherData);
 
-  const minutelyData = weatherData.timelines?.minutely[0]?.values;
-  
+  const name = weatherData.name;
+  const firstMinutely = weatherData.timelines?.minutely?.[0]?.values;
+
+  const cityCard = firstMinutely ? (
+    <Card
+      key={firstMinutely.time}
+      name={name}
+      code={firstMinutely.weatherCode}
+      humidity={firstMinutely.humidity}
+      temperature={firstMinutely.temperature}
+      uvIndex={firstMinutely.uvIndex}
+      windSpeed={firstMinutely.windSpeed}
+      setSavedLocations={setSavedLocations}
+      error={error}
+    />
+  ) : null;
+
   return (
     <div className="forecast-container">
-      <h1>Hello</h1>
       {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+      {error && <div className='error'><p>{error}</p></div>}
       {weatherData && (
-        <div className="minutely-card">
-          {minutelyData && minutelyData.length > 0 && (
-            <div className="minutely-card">
-              {weatherData.map((loca) => (
-                <Card 
-                 key={loca.name} 
-                 code={loca.timelines.minutely[0].values.weatherCode}
-                 name={loca.name}
-                 humidity={loca.timelines.minutely[0].values.humidity}
-                 temperature={loca.timelines.minutely[0].values.temperature}
-                 uvIndex={loca.timelines.minutely[0].values.uvIndex}
-                 windSpeed={loca.timelines.minutely[0].values.windSpeed}
-                 />
-              ))}
-            </div>
-          )}
-          <Card name={weatherData.location?.name} />
+        <div className="card-section">
+          {cityCard}
         </div>
       )}
     </div>
