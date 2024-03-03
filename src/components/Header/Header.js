@@ -9,7 +9,7 @@ const Header = () => {
         Weather Pal
       </NavLink>
       <nav className="nav-links">
-        <NavLink to="/" className="nav-link">
+        <NavLink to="/" id='home-btn' className="nav-link">
           Home
         </NavLink>
       </nav>
