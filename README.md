@@ -27,3 +27,11 @@ git clone https://github.com/your-username/weather-app.git
 cd weather-app
 npm install
 npm start 
+
+```
+## Testing
+To run tests open the terminal and enter
+```bash
+npm run cy
+```
+then select e2e testing then spec. 
