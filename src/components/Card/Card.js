@@ -1,6 +1,7 @@
 import React from 'react';
 import './Card.css';
 import { weatherCodeData } from '../../cities';
+import PropTypes from 'prop-types'
 
 const Card = ({ code, name, humidity, temperature, uvIndex, windSpeed, setSavedLocations, error }) => {
   const getWeatherCondition = (code) => {
@@ -43,3 +44,14 @@ const Card = ({ code, name, humidity, temperature, uvIndex, windSpeed, setSavedL
 };
 
 export default Card;
+
+Card.propTypes = {
+  code: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  humidity: PropTypes.number.isRequired,
+  temperature: PropTypes.number.isRequired,
+  uvIndex: PropTypes.number.isRequired,
+  windSpeed: PropTypes.number.isRequired,
+  setSavedLocations: PropTypes.func.isRequired,
+  error: PropTypes.string,
+};

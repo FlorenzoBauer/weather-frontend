@@ -3,7 +3,7 @@ import './Home.css';
 import { cities } from '../../cities';
 import { useNavigate } from 'react-router-dom';
 import HomeCard from '../HomeCard/HomeCard';
-
+import PropTypes from 'prop-types';
 const Home = ({ setLocation }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [savedLocations, setSavedLocations] = useState([]);
@@ -91,3 +91,7 @@ const Home = ({ setLocation }) => {
 };
 
 export default Home;
+
+Home.propTypes = {
+  setLocation: PropTypes.func.isRequired,
+};

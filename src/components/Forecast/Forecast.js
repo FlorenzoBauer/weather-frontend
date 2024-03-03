@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Forecast.css';
 import { weatherAPI } from '../../api-calls';
 import Card from '../Card/Card';
+import PropTypes from 'prop-types'
 
 const Forecast = ({ setSavedLocations }) => {
   const [weatherData, setWeatherData] = useState([]);
@@ -62,3 +63,7 @@ const Forecast = ({ setSavedLocations }) => {
 };
 
 export default Forecast;
+
+Forecast.propTypes = {
+  setSavedLocations: PropTypes.func.isRequired,
+};

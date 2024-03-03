@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './HomeCard.css';
+import PropTypes from 'prop-types'
 
 const HomeCard = ({ name, setLocation }) => {
   const navigate = useNavigate();
@@ -35,3 +36,8 @@ const HomeCard = ({ name, setLocation }) => {
 };
 
 export default HomeCard;
+
+HomeCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  setLocation: PropTypes.func.isRequired,
+};
