@@ -3,7 +3,7 @@ import './Footer.css'
 const Footer = () => {
     return (
         <section className='footer'>
-            <p>Lightning Weather ©</p>
+            <p>Weather Pal ©</p>
         </section>
     )
 }

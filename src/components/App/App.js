@@ -18,7 +18,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home setLocation={setLocation} savedLocations={savedLocations}/>} />
-        <Route path="/forecast" element={<Forecast location={location}/>} />
+        <Route path="/forecast" element={<Forecast setSavedLocations={setSavedLocations} location={location}/>} />
         <Route path="/map" element={<Map location={location} />} />
         <Route path="/potato" element={<Potato />} />
         <Route path="/potatoe" element={<Potato />} />
